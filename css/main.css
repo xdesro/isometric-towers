@@ -8,9 +8,14 @@
   perspective: 800px; }
 
 .face {
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1); }
+  overflow: hidden;
+  transform-origin: 0 0;
+  background-position: center;
+  background-size: 100% 100% !important;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  backface-visibility: hidden; }
 
-.scene, .shape, .face, .face-wrapper, .cr {
+.scene, .shape, .face, .cr {
   position: absolute;
   transform-style: preserve-3d; }
 
@@ -28,48 +33,25 @@
   width: 0;
   height: 0;
   transform-origin: 50%; }
-
-.face, .face-wrapper {
-  overflow: hidden;
-  transform-origin: 0 0;
-  backface-visibility: hidden; }
-
-.face {
-  background-position: center;
-  background-size: 100% 100% !important; }
-
-.face-wrapper .face {
-  left: 100%;
-  width: 100%;
-  height: 100%; }
-
-.side {
-  left: 50%; }
-
-.cr {
-  height: 100%; }
-  .cr .side {
+  .shape .ft {
+    width: 100%;
     height: 100%; }
-
-[class*="cuboid"] .ft {
-  width: 100%;
-  height: 100%; }
-[class*="cuboid"] .bk {
-  left: 100%;
-  width: 100%;
-  height: 100%; }
-[class*="cuboid"] .rt {
-  transform: rotateY(-90deg) translateX(-50%); }
-[class*="cuboid"] .lt {
-  transform: rotateY(90deg) translateX(-50%); }
-[class*="cuboid"] .tp {
-  transform: rotateX(90deg) translateY(-50%); }
-[class*="cuboid"] .bm {
-  transform: rotateX(-90deg) translateY(-50%); }
-[class*="cuboid"] .lt {
-  left: 100%; }
-[class*="cuboid"] .bm {
-  top: 100%; }
+  .shape .bk {
+    left: 100%;
+    width: 100%;
+    height: 100%; }
+  .shape .rt {
+    transform: rotateY(-90deg) translateX(-50%); }
+  .shape .lt {
+    transform: rotateY(90deg) translateX(-50%); }
+  .shape .tp {
+    transform: rotateX(90deg) translateY(-50%); }
+  .shape .bm {
+    transform: rotateX(-90deg) translateY(-50%); }
+  .shape .lt {
+    left: 100%; }
+  .shape .bm {
+    top: 100%; }
 
 .tower-main {
   width: 9em;
@@ -78,7 +60,7 @@
   transform: translate3D(0em, -11em, 0.1em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   opacity: 1; }
   .tower-main .face {
-    background-color: #FFF; }
+    background-color: #FFFFFF; }
   .tower-main .shadow-ft {
     width: 100%;
     height: 14em;
@@ -117,43 +99,6 @@
   .tower-main .bm {
     width: 9em;
     height: 9em; }
-  .tower-main .cr {
-    left: 0;
-    width: 0; }
-  .tower-main .cr-0 {
-    transform: translate3D(9em, 0, 4.5em); }
-  .tower-main .cr-1 {
-    transform: translate3D(9em, 0, -4.5em); }
-  .tower-main .cr-2 {
-    transform: translate3D(0, 0, -4.5em); }
-  .tower-main .cr-3 {
-    transform: translate3D(0, 0, 4.5em); }
-  .tower-main .cr-0 .s0 {
-    transform: rotateY(15deg) translate3D(-50%, 0, -0.025em); }
-  .tower-main .cr-0 .s1 {
-    transform: rotateY(45deg) translate3D(-50%, 0, -0.025em); }
-  .tower-main .cr-0 .s2 {
-    transform: rotateY(75deg) translate3D(-50%, 0, -0.025em); }
-  .tower-main .cr-1 .s0 {
-    transform: rotateY(105deg) translate3D(-50%, 0, -0.025em); }
-  .tower-main .cr-1 .s1 {
-    transform: rotateY(135deg) translate3D(-50%, 0, -0.025em); }
-  .tower-main .cr-1 .s2 {
-    transform: rotateY(165deg) translate3D(-50%, 0, -0.025em); }
-  .tower-main .cr-2 .s0 {
-    transform: rotateY(195deg) translate3D(-50%, 0, -0.025em); }
-  .tower-main .cr-2 .s1 {
-    transform: rotateY(225deg) translate3D(-50%, 0, -0.025em); }
-  .tower-main .cr-2 .s2 {
-    transform: rotateY(255deg) translate3D(-50%, 0, -0.025em); }
-  .tower-main .cr-3 .s0 {
-    transform: rotateY(285deg) translate3D(-50%, 0, -0.025em); }
-  .tower-main .cr-3 .s1 {
-    transform: rotateY(315deg) translate3D(-50%, 0, -0.025em); }
-  .tower-main .cr-3 .s2 {
-    transform: rotateY(345deg) translate3D(-50%, 0, -0.025em); }
-  .tower-main .side {
-    width: 0.025em; }
 
 .tower-side {
   width: 6em;
@@ -162,7 +107,7 @@
   transform: translate3D(7em, -7em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   opacity: 1; }
   .tower-side .face {
-    background-color: #FFF; }
+    background-color: #FFFFFF; }
   .tower-side .ft {
     transform: translateZ(3em); }
   .tower-side .bk {
@@ -184,10 +129,10 @@
     transform: rotateZ(45deg) translateX(2em) translateY(-8em);
     background: #8652EB; }
   .tower-side .shadow-lt {
-    height: 100%;
     width: 10em;
-    background: linear-gradient(to top, #3a21a7, rgba(58, 33, 167, 0));
-    transform: rotateZ(-180deg) rotateY(-45deg) rotateX(-90deg) translateX(0.5em) translateZ(-6em) translateY(-5.5em); }
+    height: 100%;
+    transform: rotateZ(-180deg) rotateY(-45deg) rotateX(-90deg) translateX(0.5em) translateZ(-6em) translateY(-5.5em);
+    background: linear-gradient(to top, #3a21a7, rgba(58, 33, 167, 0)); }
 
 .door {
   overflow: visible;
@@ -401,7 +346,7 @@
   transform: translate3D(3em, 0.5em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   opacity: 1; }
   .floor-1 .face {
-    background-color: #FFF; }
+    background-color: #FFFFFF; }
   .floor-1 .ft {
     transform: translateZ(12em); }
   .floor-1 .bk {
@@ -441,6 +386,6 @@
     width: 6em;
     height: 6em; }
   .roof .face {
-    background-color: #FFF; }
+    background-color: #FFFFFF; }
 
 /*# sourceMappingURL=main.css.map */
